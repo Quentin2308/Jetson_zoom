@@ -30,15 +30,13 @@ serial_port = serial.Serial(
 )
 # Wait a second to let the port initialize
 time.sleep(1)
-
-i = 0
-
+ 
 try:
     serial_port.write(Commands.adress_set)
+    temps=time.time() #stockage du tps actuel
     
-    while i!= 1000 :
+    while(time.time()-temps>10000): #10 secondes
         serial_port.write(Commands.ZoomTele)
-        i+=1
     serial_port.write(Commands.ZoomStop)
     ans = []
     
