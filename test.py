@@ -13,9 +13,9 @@ class Commands:
     ZoomTele = bytearray.fromhex("8101040702FF")
     ZoomWide = bytearray.fromhex("8101040703FF")
     def ZoomTeleVariable(self, speed):
-	return byteSet(self.ZoomTele, (speed & 7) | 0x20, 4)
+        return byteSet(self.ZoomTele, (speed & 7) | 0x20, 4)
     def ZoomWideVariable(self, speed):
-	return byteSet(self.ZoomTele, (speed & 7) | 0x30, 4)
+        return byteSet(self.ZoomTele, (speed & 7) | 0x30, 4)
 
 
 
