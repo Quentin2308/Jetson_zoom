@@ -80,13 +80,13 @@ try:
                 # For Windows boxen on the other end
             	    serial_port.write("\n".encode())
             	if s:
-            	    byte = ord(s)
+            	    #byte = ord(s)
             	    count+=1
-            	    packet=packet+chr(byte)
+            	    packet=packet+chr(s)
             	else:
             	    print ("ERROR: Timeout waiting for reply")
             	    break
-            	if byte==0xff:
+            	if s==0xff:
             	    break
             print (packet)
             #if data == "\r".encode():
