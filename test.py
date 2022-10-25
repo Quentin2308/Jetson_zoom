@@ -102,8 +102,7 @@ try:
             #if data == "\r".encode():
                 # For Windows boxen on the other end
                 #serial_port.write("\n".encode())
-    
-
+   
 except KeyboardInterrupt:
     serial_port.write(Commands.ZoomStop)
     print("Exiting Program")
