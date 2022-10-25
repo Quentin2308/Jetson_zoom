@@ -35,8 +35,10 @@ try:
     serial_port.write(Commands.adress_set)
     
     while True:
+        ans = []
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
+            ans.append(data)
             print(data)
             #serial_port.write(data)
             # if we get a carriage return, add a line feed too
@@ -47,7 +49,7 @@ try:
             if data == "\r".encode():
                 # For Windows boxen on the other end
                 serial_port.write("\n".encode())
-
+        print(ans)
 
 except KeyboardInterrupt:
     print("Exiting Program")
