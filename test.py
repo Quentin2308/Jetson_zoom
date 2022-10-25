@@ -71,7 +71,7 @@ try:
     while True: 
 		
 #ajout
-	if serial_port.inWaiting() > 0:
+        if serial_port.inWaiting() > 0:
             packet=''
             count=0
             while count<16:
