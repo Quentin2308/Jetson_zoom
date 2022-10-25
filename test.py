@@ -99,9 +99,9 @@ except KeyboardInterrupt:
     serial_port.write(Commands.ZoomStop)
     print("Exiting Program")
 
-except Exception as exception_error:
-    print("Error occurred. Exiting Program")
-    print("Error: " + str(exception_error))
+#except Exception as exception_error:
+    #print("Error occurred. Exiting Program")
+    #print("Error: " + str(exception_error))
 
 finally:
     serial_port.close()
