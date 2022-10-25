@@ -75,7 +75,7 @@ try:
             packet=bytearray()
             count=0
             while count<16:
-            	s=serial_port.read(1)
+            	s=serial_port.read()
             	print("s = ", s)
             	if s == "\r".encode():
                 # For Windows boxen on the other end
@@ -83,7 +83,7 @@ try:
             	if s:
             	    #byte = ord(s)
             	    count+=1
-            	    packet.append(s[2::])
+            	    packet.append(s)
             	else:
             	    print ("ERROR: Timeout waiting for reply")
             	    break
