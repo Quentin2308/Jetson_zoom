@@ -42,14 +42,14 @@ try:
             serial_port.write(Commands.ZoomTele)
         else :
             speed = args["speed"]
-            serial_port.write(Commands.ZoomTeleVariable(speed))
+            serial_port.write(Commands().ZoomTeleVariable(speed))
             
     elif args["zoom"] == "zoomout" :
         if not args.get("speed", False):
             serial_port.write(Commands.ZoomWide)
         else : 
             speed = args["speed"]
-            serial_port.write(Commands.ZoomWideVariable(speed))
+            serial_port.write(Commands().ZoomWideVariable(speed))
     
     else :
         serial_port.write(Commands.ZoomStop)
