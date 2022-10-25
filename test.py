@@ -33,6 +33,11 @@ class Commands:
         return byteSet(self.ZoomTele, (speed & 7) | 0x20, 4)
     def ZoomWideVariable(self, speed):
         return byteSet(self.ZoomTele, (speed & 7) | 0x30, 4)
+Commands = Commands()
+
+class Inquiry:
+	Power = bytearray.fromhex("81090400ff")
+	ZoomPos = bytearray.fromhex("81090447ff")
 
 serial_port = serial.Serial(
     port="/dev/ttyUSB0",
@@ -51,14 +56,14 @@ try:
             serial_port.write(Commands.ZoomTele)
         else :
             speed = args["speed"]
-            serial_port.write(Commands().ZoomTeleVariable(speed))
+            serial_port.write(Commands.ZoomTeleVariable(speed))
             
     elif args["zoom"] == "zoomout" :
         if not args.get("speed", False):
             serial_port.write(Commands.ZoomWide)
         else : 
             speed = args["speed"]
-            serial_port.write(Commands().ZoomWideVariable(speed))
+            serial_port.write(Commands.ZoomWideVariable(speed))
     
     else :
         serial_port.write(Commands.ZoomStop)
