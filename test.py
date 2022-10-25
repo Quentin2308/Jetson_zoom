@@ -69,7 +69,24 @@ try:
         serial_port.write(Commands.ZoomStop)
     
     while True: 
-        
+		
+#ajout
+        packet=''
+        count=0
+	while count<16:
+            s=serial_port.read(1)
+            if s:
+		byte = ord(s)
+		count+=1
+		packet=packet+chr(byte)
+            else:
+		print ("ERROR: Timeout waiting for reply")
+		break
+            if byte==0xff:
+		break
+	return packet
+#fin de l'ajout			
+
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
             print(data)
