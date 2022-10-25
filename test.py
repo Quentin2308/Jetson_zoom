@@ -38,7 +38,6 @@ try:
     while(time.time()-temps>10000): #10 secondes
         serial_port.write(Commands.ZoomTele)
     serial_port.write(Commands.ZoomStop)
-    ans = []
     
     while True:
         #time.sleep(1)
@@ -48,7 +47,6 @@ try:
         #time.sleep(1)
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
-            ans.append(data)
             print(data)
             
             #serial_port.write(data)
@@ -62,7 +60,6 @@ try:
                 serial_port.write("\n".encode())
 
 except KeyboardInterrupt:
-    print(ans)
     print("Exiting Program")
 
 except Exception as exception_error:
