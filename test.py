@@ -71,33 +71,37 @@ try:
     while True: 
 		
 #ajout
-        packet=''
-        count=0
-	while count<16:
-            s=serial_port.read(1)
-            if s:
-		byte = ord(s)
-		count+=1
-		packet=packet+chr(byte)
-            else:
-		print ("ERROR: Timeout waiting for reply")
-		break
-            if byte==0xff:
-		break
-	return packet
+	if serial_port.inWaiting() > 0:
+            packet=''
+            count=0
+            while count<16:
+            	s=serial_port.read(1)
+            	if s:
+		    byte = ord(s)
+		    count+=1
+		    packet=packet+chr(byte)
+           	else:
+		    print ("ERROR: Timeout waiting for reply")
+		    break
+            	if byte==0xff:
+		    break
+            print (packet)
+            if data == "\r".encode():
+                # For Windows boxen on the other end
+                serial_port.write("\n".encode()
 #fin de l'ajout			
 
-        if serial_port.inWaiting() > 0:
-            data = serial_port.read()
-            print(data)
+        #if serial_port.inWaiting() > 0:
+            #data = serial_port.read()
+            #print(data)
             # if we get a carriage return, add a line feed too
             # \r is a carriage return; \n is a line feed
             # This is to help the tty program on the other end 
             # Windows is \r\n for carriage return, line feed
             # Macintosh and Linux use \nrt.w
-            if data == "\r".encode():
+            #if data == "\r".encode():
                 # For Windows boxen on the other end
-                serial_port.write("\n".encode())
+                #serial_port.write("\n".encode())
     
 
 except KeyboardInterrupt:
