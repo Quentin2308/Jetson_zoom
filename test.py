@@ -72,7 +72,7 @@ try:
 		
 #ajout
         if serial_port.inWaiting() > 0:
-            packet=''
+            packet=bytearray()
             count=0
             while count<16:
             	s=serial_port.read(1)
@@ -83,11 +83,11 @@ try:
             	if s:
             	    #byte = ord(s)
             	    count+=1
-            	    packet=packet+s[2::]
+            	    packet.append(s[2::])
             	else:
             	    print ("ERROR: Timeout waiting for reply")
             	    break
-            	if s==0xff:
+            	if s[2::]==0xff:
             	    break
             print (packet)
             #if data == "\r".encode():
