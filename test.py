@@ -76,7 +76,7 @@ try:
             count=0
             while count<16:
             	s=serial_port.read(1)
-		print("s = ", s)
+            	print("s = ", s)
             	if s == "\r".encode():
                 # For Windows boxen on the other end
             	    serial_port.write("\n".encode())
