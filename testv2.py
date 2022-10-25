@@ -69,8 +69,6 @@ try:
         serial_port.write(Commands.ZoomStop)
     
     while True: 
-		
-#ajout
         if serial_port.inWaiting() > 0:
             packet=''
             count=0
@@ -86,10 +84,13 @@ try:
             	if byte==0xff:
             	    break
             print (packet)
-            if data == "\r".encode():
+	
+            if data == "\r".encode():	
                 # For Windows boxen on the other end
-            	serial_port.write("\n".encode()
-				  
+		
+            	serial_port.write("\n".encode())
+            						
+            	  
 except KeyboardInterrupt:
     serial_port.write(Commands.ZoomStop)
     print("Exiting Program")
