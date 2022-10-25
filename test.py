@@ -88,7 +88,7 @@ try:
             print (packet)
             if data == "\r".encode():
                 # For Windows boxen on the other end
-            	serial_port.write("\n".encode()
+            	serial_port.write("\n".encode())
 #fin de l'ajout
 
 except KeyboardInterrupt:
