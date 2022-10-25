@@ -76,6 +76,9 @@ try:
             count=0
             while count<16:
             	s=serial_port.read(1)
+		if s == "\r".encode():
+                # For Windows boxen on the other end
+            	    serial_port.write("\n".encode())
             	if s:
             	    byte = ord(s)
             	    count+=1
@@ -86,9 +89,9 @@ try:
             	if byte==0xff:
             	    break
             print (packet)
-            if data == "\r".encode():
+            #if data == "\r".encode():
                 # For Windows boxen on the other end
-            	serial_port.write("\n".encode())
+            	#serial_port.write("\n".encode())
 #fin de l'ajout
 
 except KeyboardInterrupt:
