@@ -33,18 +33,11 @@ time.sleep(1)
  
 try:
     serial_port.write(Commands.adress_set)
+    
     temps=time.time() #stockage du tps actuel
     
-    while (time.time()-temps>10000): #5 secondes
+    while (time.time()-temps<10000): #5 secondes
         serial_port.write(Commands.ZoomTele)
-    serial_port.write(Commands.ZoomStop)
-    
-    while True:
-        #time.sleep(1)
-        #serial_port.write(Commands.ZoomStop)
-        #time.sleep(1)
-        #serial_port.write(Commands.ZoomWide)
-        #time.sleep(1)
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
             print(data)
@@ -58,6 +51,8 @@ try:
             if data == "\r".encode():
                 # For Windows boxen on the other end
                 serial_port.write("\n".encode())
+    serial_port.write(Commands.ZoomStop)
+    
 
 except KeyboardInterrupt:
     print("Exiting Program")
