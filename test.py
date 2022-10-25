@@ -36,10 +36,17 @@ try:
     ans = []
     
     while True:
+        serial_port.write(Commands.ZoomTele)
+        time.sleep(1)
+        serial_port.wite(Commands.ZoomStop)
+        time.sleep(1)
+        serial_port.write(Commands.ZoomWide)
+        time.sleep(1)
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
-            ans.append(hex(int(data.encode('hex'),16)))
+            ans.append(data)
             print(data)
+            
             #serial_port.write(data)
             # if we get a carriage return, add a line feed too
             # \r is a carriage return; \n is a line feed
