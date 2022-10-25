@@ -7,15 +7,15 @@ print("NVIDIA Jetson Nano Developer Kit")
 
 class Commands:
     adress_set = bytearray.fromhex("883001FF")
-	PowerOn = bytearray.fromhex("8101040002FF")
-	PowerOff = bytearray.fromhex("8101040003FF")
-	ZoomStop = bytearray.fromhex("8101040700FF")
-	ZoomTele = bytearray.fromhex("8101040702FF")
-	ZoomWide = bytearray.fromhex("8101040703FF")
-	def ZoomTeleVariable(self, speed):
-			return byteSet(self.ZoomTele, (speed & 7) | 0x20, 4)
-	def ZoomWideVariable(self, speed):
-			return byteSet(self.ZoomTele, (speed & 7) | 0x30, 4)
+    PowerOn = bytearray.fromhex("8101040002FF")
+    PowerOff = bytearray.fromhex("8101040003FF")
+    ZoomStop = bytearray.fromhex("8101040700FF")
+    ZoomTele = bytearray.fromhex("8101040702FF")
+    ZoomWide = bytearray.fromhex("8101040703FF")
+    def ZoomTeleVariable(self, speed):
+	return byteSet(self.ZoomTele, (speed & 7) | 0x20, 4)
+    def ZoomWideVariable(self, speed):
+	return byteSet(self.ZoomTele, (speed & 7) | 0x30, 4)
 
 
 
