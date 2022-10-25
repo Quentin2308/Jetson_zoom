@@ -31,12 +31,15 @@ serial_port = serial.Serial(
 # Wait a second to let the port initialize
 time.sleep(1)
 
+i = 0
+
 try:
     serial_port.write(Commands.adress_set)
-    serial_port.write(Commands.ZoomWide)
-    time.sleep(3)
+    
+    while i!= 20 :
+        serial_port.write(Commands.ZoomWide)
+        i+=1
     serial_port.write(Commands.ZoomStop)
-
     ans = []
     
     while True:
