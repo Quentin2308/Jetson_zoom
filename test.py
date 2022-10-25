@@ -16,6 +16,8 @@ serial_port = serial.Serial(
 # Wait a second to let the port initialize
 time.sleep(1)
 
+adress_set = 883001FF
+
 try:
     # Send a simple header
     serial_port.write("UART Demonstration Program\r\n".encode())
