@@ -51,7 +51,7 @@ try:
                 serial_port.write("\n".encode())
 
 except KeyboardInterrupt:
-    print(ans)
+    print(hex(int(ans.encode('hex '),16)))
     print("Exiting Program")
 
 except Exception as exception_error:
