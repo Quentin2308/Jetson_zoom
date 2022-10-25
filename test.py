@@ -83,7 +83,7 @@ try:
             	if s:
             	    #byte = ord(s)
             	    count+=1
-            	    packet.append(s)
+            	    packet = packet + s
             	else:
             	    print ("ERROR: Timeout waiting for reply")
             	    break
