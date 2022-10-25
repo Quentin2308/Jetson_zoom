@@ -34,6 +34,8 @@ time.sleep(1)
 try:
     serial_port.write(Commands.adress_set)
     serial_port.write(Commands.ZoomWide)
+    time.sleep(3)
+    serial_port.write(Commands.ZoomStop)
 
     ans = []
     
