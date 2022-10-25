@@ -40,6 +40,7 @@ try:
             data = serial_port.read()
             ans.append(data)
             print(data)
+            print(ans)
             #serial_port.write(data)
             # if we get a carriage return, add a line feed too
             # \r is a carriage return; \n is a line feed
@@ -49,7 +50,6 @@ try:
             if data == "\r".encode():
                 # For Windows boxen on the other end
                 serial_port.write("\n".encode())
-        print(ans)
 
 except KeyboardInterrupt:
     print("Exiting Program")
