@@ -13,6 +13,10 @@ args = vars(ap.parse_args())
 print("UART Program")
 print("NVIDIA Jetson Nano Developer Kit")
 
+def byteSet(by, value, position):
+	by[position] = value
+	return by
+
 class Commands:
     adress_set = bytearray.fromhex("883001FF")
     PowerOn = bytearray.fromhex("8101040002FF")
