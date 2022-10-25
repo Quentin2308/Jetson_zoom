@@ -35,7 +35,7 @@ try:
     serial_port.write(Commands.adress_set)
     temps=time.time() #stockage du tps actuel
     
-    while(time.time()-temps>10000): #10 secondes
+    while(time.time()-temps<10000): #10 secondes
         serial_port.write(Commands.ZoomTele)
     serial_port.write(Commands.ZoomStop)
     
