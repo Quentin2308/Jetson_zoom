@@ -33,15 +33,16 @@ time.sleep(1)
 
 try:
     serial_port.write(Commands.adress_set)
+    serial_port.write(Commands.ZoomWide)
+
     ans = []
     
     while True:
-        serial_port.write(Commands.ZoomTele)
-        time.sleep(1)
-        serial_port.write(Commands.ZoomStop)
-        time.sleep(1)
-        serial_port.write(Commands.ZoomWide)
-        time.sleep(1)
+        #time.sleep(1)
+        #serial_port.write(Commands.ZoomStop)
+        #time.sleep(1)
+        #serial_port.write(Commands.ZoomWide)
+        #time.sleep(1)
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
             ans.append(data)
