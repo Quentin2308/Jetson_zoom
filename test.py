@@ -77,14 +77,14 @@ try:
             while count<16:
             	s=serial_port.read(1)
             	if s:
-		    byte = ord(s)
-		    count+=1
-		    packet=packet+chr(byte)
+            	    byte = ord(s)
+            	    count+=1
+            	    packet=packet+chr(byte)
            	else:
-		    print ("ERROR: Timeout waiting for reply")
-		    break
+            	    print ("ERROR: Timeout waiting for reply")
+            	    break
             	if byte==0xff:
-		    break
+            	    break
             print (packet)
             if data == "\r".encode():
                 # For Windows boxen on the other end
