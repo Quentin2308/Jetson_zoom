@@ -37,7 +37,7 @@ try:
     temps=time.time() #stockage du tps actuel
     
     while (time.time()-temps<10000): #5 secondes
-        serial_port.write(Commands.ZoomTele)
+        serial_port.write(Commands.ZoomWide)
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
             print(data)
