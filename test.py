@@ -5,6 +5,21 @@ import serial
 print("UART Program")
 print("NVIDIA Jetson Nano Developer Kit")
 
+class Commands:
+    adress_set = bytearray.fromhex("883001FF")
+	PowerOn = bytearray.fromhex("8101040002FF")
+	PowerOff = bytearray.fromhex("8101040003FF")
+	ZoomStop = bytearray.fromhex("8101040700FF")
+	ZoomTele = bytearray.fromhex("8101040702FF")
+	ZoomWide = bytearray.fromhex("8101040703FF")
+	def ZoomTeleVariable(self, speed):
+			return byteSet(self.ZoomTele, (speed & 7) | 0x20, 4)
+	def ZoomWideVariable(self, speed):
+			return byteSet(self.ZoomTele, (speed & 7) | 0x30, 4)
+
+
+
+print(Commands.adress_set)
 
 serial_port = serial.Serial(
     port="/dev/ttyUSB0",
@@ -16,12 +31,8 @@ serial_port = serial.Serial(
 # Wait a second to let the port initialize
 time.sleep(1)
 
-adress_set = 883001FF
-
 try:
-    # Send a simple header
-    serial_port.write("UART Demonstration Program\r\n".encode())
-    serial_port.write("NVIDIA Jetson Nano Developer Kit\r\n".encode())
+    serial_port.write(Commands.adress_set)
     
     while True:
         if serial_port.inWaiting() > 0:
