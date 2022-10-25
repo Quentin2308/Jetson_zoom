@@ -38,7 +38,7 @@ try:
     while True:
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
-            ans.append(data)
+            ans.append(hex(int(data.encode('hex'),16)))
             print(data)
             #serial_port.write(data)
             # if we get a carriage return, add a line feed too
@@ -51,7 +51,7 @@ try:
                 serial_port.write("\n".encode())
 
 except KeyboardInterrupt:
-    print(hex(int(ans.encode('hex '),16)))
+    print(ans)
     print("Exiting Program")
 
 except Exception as exception_error:
