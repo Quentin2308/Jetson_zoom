@@ -1,6 +1,14 @@
 #!/usr/bin/python3
 import time
 import serial
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-z", "--zoom", type=str,
+    help="zoom position")
+ap.add_argument("-s", "--speed", type=int,
+    help="zoom speed between 0 and 7")
+args = vars(ap.parse_args())
 
 print("UART Program")
 print("NVIDIA Jetson Nano Developer Kit")
@@ -17,10 +25,6 @@ class Commands:
     def ZoomWideVariable(self, speed):
         return byteSet(self.ZoomTele, (speed & 7) | 0x30, 4)
 
-
-
-print(Commands.adress_set)
-
 serial_port = serial.Serial(
     port="/dev/ttyUSB0",
     baudrate=9600,
@@ -33,25 +37,34 @@ time.sleep(1)
  
 try:
     serial_port.write(Commands.adress_set)
-    serial_port.write(Commands.ZoomWide)
-    temps=time.time() #stockage du tps actuel
+    if args["zoom"] == "zoomin" :
+        if not args.get("speed", False):
+            serial_port.write(Commands.ZoomTele)
+        else :
+            serial_port.write(Commands.ZoomTeleVariable(args["speed"]))
+            
+    elif args["zoom"] == "zoomout" :
+        if not args.get("speed", False):
+            serial_port.write(Commands.ZoomWide)
+        else : 
+            serial_port.write(Commands.ZoomWideVariable(args["speed"]))
     
-    while True: #5 secondes
+    else :
+        serial_port.write(Commands.ZoomStop)
+    
+    while True: 
         
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
             print(data)
-            
-            #serial_port.write(data)
             # if we get a carriage return, add a line feed too
             # \r is a carriage return; \n is a line feed
             # This is to help the tty program on the other end 
             # Windows is \r\n for carriage return, line feed
-            # Macintosh and Linux use \n
+            # Macintosh and Linux use \nrt.w
             if data == "\r".encode():
                 # For Windows boxen on the other end
                 serial_port.write("\n".encode())
-    serial_port.write(Commands.ZoomStop)
     
 
 except KeyboardInterrupt:
