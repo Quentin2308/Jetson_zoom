@@ -33,14 +33,13 @@ time.sleep(1)
 
 try:
     serial_port.write(Commands.adress_set)
+    ans = []
     
     while True:
-        ans = []
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
             ans.append(data)
             print(data)
-            print(ans)
             #serial_port.write(data)
             # if we get a carriage return, add a line feed too
             # \r is a carriage return; \n is a line feed
@@ -52,6 +51,7 @@ try:
                 serial_port.write("\n".encode())
 
 except KeyboardInterrupt:
+    print(ans)
     print("Exiting Program")
 
 except Exception as exception_error:
