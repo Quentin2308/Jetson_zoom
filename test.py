@@ -36,8 +36,8 @@ i = 0
 try:
     serial_port.write(Commands.adress_set)
     
-    while i!= 20 :
-        serial_port.write(Commands.ZoomWide)
+    while i!= 1000 :
+        serial_port.write(Commands.ZoomTele)
         i+=1
     serial_port.write(Commands.ZoomStop)
     ans = []
