@@ -33,11 +33,11 @@ time.sleep(1)
  
 try:
     serial_port.write(Commands.adress_set)
-    
+    serial_port.write(Commands.ZoomWide)
     temps=time.time() #stockage du tps actuel
     
-    while (time.time()-temps>5000): #5 secondes
-        serial_port.write(Commands.ZoomWide)
+    while True: #5 secondes
+        
         if serial_port.inWaiting() > 0:
             data = serial_port.read()
             print(data)
@@ -55,6 +55,7 @@ try:
     
 
 except KeyboardInterrupt:
+    serial_port.write(Commands.ZoomStop)
     print("Exiting Program")
 
 except Exception as exception_error:
