@@ -82,15 +82,15 @@ try:
             	    
             	    packet.append(s[2::])
             	    print(packet)
-		    finished_packet = True
+            	    finished_packet = True
             	
             	else :
 		    
-		    packet.append(s[2::])
+            	    packet.append(s[2::])
             	
             	if s == "\r".encode():
                 # For Windows boxen on the other end
-		    serial_port.write("\n".encode())
+            	    serial_port.write("\n".encode())
 
 except KeyboardInterrupt:
     serial_port.write(Commands.ZoomStop)
