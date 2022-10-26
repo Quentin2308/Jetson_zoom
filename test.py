@@ -22,6 +22,9 @@ def byteSet(by, value, position):
 	by[position] = value
 	return by
 
+zoom_in_max = [b'\x90', b'P', b'\x00', b'\x00', b'\x00', b'\x00', b'\xff']
+zoom_out_max = [b'\x90', b'P', b'\x00', b'\x00', b'\x00', b'\x00', b'\xff']
+
 class Commands:
     adress_set = bytearray.fromhex("883001FF")
     PowerOn = bytearray.fromhex("8101040002FF")
@@ -69,8 +72,9 @@ try:
     else :
         serial_port.write(Commands.ZoomStop)
 	
-    
-    while True: 
+    zoom_max = False
+    while not zoom_max : 	
+	#serial_port.write(Inquiry.ZoomPos)
         packet = []
         finished_packet = False
         while not finished_packet :
@@ -83,7 +87,11 @@ try:
             	    
             	    packet.append(s)
             	    print(packet)
-            	    #ajouter une condition sur zoom pos
+            	    
+            	    if packet == zoom_in_max or packet == zoom_out_max :
+            	        serial_port.write(Commands.ZoomStop)
+			zoom_max = True
+
             	    finished_packet = True
             	
             	else :
