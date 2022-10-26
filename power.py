@@ -69,7 +69,9 @@ try:
               power = True
             else :
               serial_port.write(Commands.PowerOff)
-            
+              print("camera power off !")
+              power = True
+                
           finished_packet = True
         
         else :
