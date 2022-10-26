@@ -28,7 +28,7 @@ def byteSet(by, value, position):
 zoom_out_max = [b'\x90', b'P', b'\x00', b'\x00', b'\x00', b'\x00', b'\xff']
 zoom_in_D5_max = [b'\x90', b'P', b'\x08', b'\x0c', b'\x04', b'\x00', b'\xff']
 zoom_in_D4_max = [b'\x90', b'P', b'\x08', b'\t', b'\x00', b'\x00', b'\xff']
-#zoom_in_D3_max = [b'\x90', b'P', b'\x04', b'\x00', b'\x00', b'\x00', b'\xff']
+zoom_in_D3_max = [b'\x90', b'P', b'\x07', b'\x0e', b'\x08', b'\x00', b'\xff']
 #zoom_in_D2_max = [b'\x90', b'P', b'\x04', b'\x00', b'\x00', b'\x00', b'\xff']
 #zoom_in_D1_max = [b'\x90', b'P', b'\x04', b'\x00', b'\x00', b'\x00', b'\xff']
 zoom_in_D0_max = [b'\x90', b'P', b'\x04', b'\x00', b'\x00', b'\x00', b'\xff']
@@ -137,9 +137,9 @@ try:
             	        #elif packet == zoom_in_D2_max and args["digitalzoom"] == 2 :
             	            #serial_port.write(Commands.ZoomStop)
             	            #zoom_max = True
-            	        #elif packet == zoom_in_D3_max and args["digitalzoom"] == 3 :
-            	            #serial_port.write(Commands.ZoomStop)
-            	            #zoom_max = True
+            	        elif packet == zoom_in_D3_max and args["digitalzoom"] == 3 :
+            	            serial_port.write(Commands.ZoomStop)
+            	            zoom_max = True
             	        elif packet == zoom_in_D4_max and args["digitalzoom"] == 4 :
             	            serial_port.write(Commands.ZoomStop)
             	            zoom_max = True
