@@ -88,10 +88,14 @@ try:
             	    packet.append(s)
             	    print(packet)
             	    
-            	    if packet == zoom_in_max :#or packet == zoom_out_max :
+            	    if packet == zoom_in_max and args["zoom"] == "zoomin":
             	        serial_port.write(Commands.ZoomStop)
             	        zoom_max = True
-
+			
+            	    elif packet == zoom_out_max and args["zoom"] == "zoomout":
+			serial_port.write(Commands.ZoomStop)
+            	        zoom_max = True
+			
             	    finished_packet = True
             	
             	else :
