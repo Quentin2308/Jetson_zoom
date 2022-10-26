@@ -125,10 +125,10 @@ try:
             	    print(packet)
             	    
             	    if args["zoom"] == "zoomin":
-			if packet == zoom_in_D0_max and not args.get("digitalzoom", False):
+            	        if packet == zoom_in_D0_max and not args.get("digitalzoom", False):
             	            serial_port.write(Commands.ZoomStop)
             	            zoom_max = True
-			elif packet == zoom_in_D0_max and args["digitalzoom"] == 0 :
+            	        elif packet == zoom_in_D0_max and args["digitalzoom"] == 0 :
             	            serial_port.write(Commands.ZoomStop)
             	            zoom_max = True
 			#elif packet == zoom_in_D1_max and args["digitalzoom"] == 1 :
@@ -143,7 +143,7 @@ try:
 			#elif packet == zoom_in_D4_max and args["digitalzoom"] == 4 :
             	            #serial_port.write(Commands.ZoomStop)
             	            #zoom_max = True
-			elif packet == zoom_in_D5_max and args["digitalzoom"] == 5 :
+            	        elif packet == zoom_in_D5_max and args["digitalzoom"] == 5 :
             	            serial_port.write(Commands.ZoomStop)
             	            zoom_max = True
 			
