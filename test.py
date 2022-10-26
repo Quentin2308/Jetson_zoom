@@ -131,16 +131,16 @@ try:
             	        elif packet == zoom_in_D0_max and args["digitalzoom"] == 0 :
             	            serial_port.write(Commands.ZoomStop)
             	            zoom_max = True
-			#elif packet == zoom_in_D1_max and args["digitalzoom"] == 1 :
+            	        #elif packet == zoom_in_D1_max and args["digitalzoom"] == 1 :
             	            #serial_port.write(Commands.ZoomStop)
             	            #zoom_max = True
-			#elif packet == zoom_in_D2_max and args["digitalzoom"] == 2 :
+            	        #elif packet == zoom_in_D2_max and args["digitalzoom"] == 2 :
             	            #serial_port.write(Commands.ZoomStop)
             	            #zoom_max = True
-			#elif packet == zoom_in_D3_max and args["digitalzoom"] == 3 :
+            	        #elif packet == zoom_in_D3_max and args["digitalzoom"] == 3 :
             	            #serial_port.write(Commands.ZoomStop)
             	            #zoom_max = True
-			#elif packet == zoom_in_D4_max and args["digitalzoom"] == 4 :
+            	        #elif packet == zoom_in_D4_max and args["digitalzoom"] == 4 :
             	            #serial_port.write(Commands.ZoomStop)
             	            #zoom_max = True
             	        elif packet == zoom_in_D5_max and args["digitalzoom"] == 5 :
