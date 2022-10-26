@@ -109,9 +109,9 @@ try:
 	
 	
     zoom_max = False
+    print("tap Ctrl+C to stop the zoom")
     while not zoom_max : 	
         serial_port.write(Inquiry.ZoomPos)
-        print("tap Ctrl+C to stop the zoom")
         packet = []
         finished_packet = False
         while not finished_packet :
@@ -123,7 +123,7 @@ try:
             	if s == b'\xff' :
             	    
             	    packet.append(s)
-            	    print(packet)
+            	    #print(packet)
             	    
             	    if args["zoom"] == "zoomin":
             	        if packet == zoom_in_D0_max and not args.get("digitalzoom", False):
