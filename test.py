@@ -107,6 +107,7 @@ try:
     else :
         serial_port.write(Commands.ZoomStop)
 	
+	
     zoom_max = False
     while not zoom_max : 	
         serial_port.write(Inquiry.ZoomPos)
