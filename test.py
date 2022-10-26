@@ -80,13 +80,13 @@ try:
 		
             	if s == b'\xff' :
             	    
-            	    packet.append(s[2::])
+            	    packet.append(s)
             	    print(packet)
             	    finished_packet = True
             	
             	else :
 		    
-            	    packet.append(s[2::])
+            	    packet.append(s)
             	
             	if s == "\r".encode():
                 # For Windows boxen on the other end
