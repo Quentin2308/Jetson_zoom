@@ -74,7 +74,7 @@ try:
 	
     zoom_max = False
     while not zoom_max : 	
-	serial_port.write(Inquiry.ZoomPos)
+        serial_port.write(Inquiry.ZoomPos)
         packet = []
         finished_packet = False
         while not finished_packet :
