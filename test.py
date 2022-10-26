@@ -93,7 +93,7 @@ try:
             	        zoom_max = True
 			
             	    elif packet == zoom_out_max and args["zoom"] == "zoomout":
-			serial_port.write(Commands.ZoomStop)
+            	        serial_port.write(Commands.ZoomStop)
             	        zoom_max = True
 			
             	    finished_packet = True
