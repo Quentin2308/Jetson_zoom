@@ -78,8 +78,8 @@ try:
           serial_port.write("\n".encode())
           
 except KeyboardInterrupt:
-    serial_port.write(Commands.ZoomStop)
-    print("zoom stopped ...... Exiting Program")
+    
+    print("...... Exiting Program")
 
 #except Exception as exception_error:
     #print("Error occurred. Exiting Program")
