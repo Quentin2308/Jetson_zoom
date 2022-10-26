@@ -54,7 +54,7 @@ time.sleep(1)
  
 try:
     serial_port.write(Commands.adress_set)
-    serial_port.write(Inquiry.ZoomPos)
+    #serial_port.write(Inquiry.ZoomPos)
     if args["zoom"] == "zoomin" :
         if not args.get("speed", False):
             serial_port.write(Commands.ZoomTele)
@@ -74,7 +74,7 @@ try:
 	
     zoom_max = False
     while not zoom_max : 	
-	#serial_port.write(Inquiry.ZoomPos)
+	serial_port.write(Inquiry.ZoomPos)
         packet = []
         finished_packet = False
         while not finished_packet :
