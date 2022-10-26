@@ -53,8 +53,8 @@ class Commands:
 Commands = Commands()
 
 class Inquiry:
-	Power = bytearray.fromhex("81090400ff")
-	ZoomPos = bytearray.fromhex("81090447ff")
+    Power = bytearray.fromhex("81090400ff")
+    ZoomPos = bytearray.fromhex("81090447ff")
 
 serial_port = serial.Serial(
     port="/dev/ttyUSB0",
@@ -70,25 +70,25 @@ try:
     serial_port.write(Commands.adress_set)
 
     if not args.get("digitalzoom",False):
-	serial_port.write(Commands.Cam_DZoom_0)	
+        serial_port.write(Commands.Cam_DZoom_0)	
 
     elif args["digitalzoom"] == 0 :
-	serial_port.write(Commands.Cam_DZoom_0)	
+        serial_port.write(Commands.Cam_DZoom_0)	
 	
     elif args["digitalzoom"] == 1 :
-	serial_port.write(Commands.Cam_DZoom_1)
+        serial_port.write(Commands.Cam_DZoom_1)
 	
     elif args["digitalzoom"] == 2 :
-	serial_port.write(Commands.Cam_DZoom_2)
+        serial_port.write(Commands.Cam_DZoom_2)
 	
     elif args["digitalzoom"] == 3 :
-	serial_port.write(Commands.Cam_DZoom_3)
+        serial_port.write(Commands.Cam_DZoom_3)
 	
     elif args["digitalzoom"] == 4 :
-	serial_port.write(Commands.Cam_DZoom_4)
+        serial_port.write(Commands.Cam_DZoom_4)
 	
     elif args["digitalzoom"] == 5 :
-	serial_port.write(Commands.Cam_DZoom_5)
+        serial_port.write(Commands.Cam_DZoom_5)
 
     if args["zoom"] == "zoomin" :
         if not args.get("speed", False):
