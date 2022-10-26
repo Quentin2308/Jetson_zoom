@@ -90,7 +90,7 @@ try:
             	    
             	    if packet == zoom_in_max or packet == zoom_out_max :
             	        serial_port.write(Commands.ZoomStop)
-			zoom_max = True
+            	        zoom_max = True
 
             	    finished_packet = True
             	
