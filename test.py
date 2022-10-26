@@ -71,8 +71,8 @@ try:
     
     while True: #a modifier
         packet = []
-	finished_packet = False
-	while not finished_packet :
+        finished_packet = False
+        while not finished_packet :
             if serial_port.inWaiting() > 0:
 		
             	s=serial_port.read()
