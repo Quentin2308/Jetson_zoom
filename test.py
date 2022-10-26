@@ -156,6 +156,7 @@ try:
 			
             	    elif packet == zoom_out_max and args["zoom"] == "zoomout":
             	        serial_port.write(Commands.ZoomStop)
+            	        print("dezoom max achieved")
             	        zoom_max = True
 			
             	    finished_packet = True
