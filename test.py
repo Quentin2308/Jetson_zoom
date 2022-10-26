@@ -111,6 +111,7 @@ try:
     zoom_max = False
     while not zoom_max : 	
         serial_port.write(Inquiry.ZoomPos)
+        print("tap Ctrl+C to stop the zoom")
         packet = []
         finished_packet = False
         while not finished_packet :
@@ -171,7 +172,7 @@ try:
 
 except KeyboardInterrupt:
     serial_port.write(Commands.ZoomStop)
-    print("Exiting Program")
+    print("zoom stopped ...... Exiting Program")
 
 #except Exception as exception_error:
     #print("Error occurred. Exiting Program")
