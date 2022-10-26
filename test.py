@@ -67,33 +67,30 @@ try:
     
     else :
         serial_port.write(Commands.ZoomStop)
+	
     
-    while True: 
+    while True: #a modifier
+        packet = []
+	finished_packet = False
+	while not finished_packet :
+            if serial_port.inWaiting() > 0:
 		
-#ajout
-        if serial_port.inWaiting() > 0:
-            packet=bytearray()
-            count=0
-            while count<16:
             	s=serial_port.read()
             	print("s = ", s)
+		
+            	if s == b'\xff' :
+            	    
+            	    packet.append(s[2::])
+            	    print(packet)
+		    finished_packet = True
+            	
+            	else :
+		    
+		    packet.append(s[2::])
+            	
             	if s == "\r".encode():
                 # For Windows boxen on the other end
-            	    serial_port.write("\n".encode())
-            	if s:
-            	    #byte = ord(s)
-            	    count+=1
-            	    packet = packet + s
-            	else:
-            	    print ("ERROR: Timeout waiting for reply")
-            	    break
-            	if s[2::]==0xff:
-            	    break
-            print (packet)
-            #if data == "\r".encode():
-                # For Windows boxen on the other end
-            	#serial_port.write("\n".encode())
-#fin de l'ajout
+		    serial_port.write("\n".encode())
 
 except KeyboardInterrupt:
     serial_port.write(Commands.ZoomStop)
