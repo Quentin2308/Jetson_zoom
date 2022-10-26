@@ -29,6 +29,8 @@ class Commands:
     adress_set = bytearray.fromhex("883001FF")
     PowerOn = bytearray.fromhex("8101040002FF")
     PowerOff = bytearray.fromhex("8101040003FF")
+    Cam_DZoom_min = bytearray_fromhex("8101042600ff")
+    Cam_DZoom_max = bytearray_fromhex("8101042605ff")
     ZoomStop = bytearray.fromhex("8101040700FF")
     ZoomTele = bytearray.fromhex("8101040702FF")
     ZoomWide = bytearray.fromhex("8101040703FF")
@@ -54,7 +56,7 @@ time.sleep(1)
  
 try:
     serial_port.write(Commands.adress_set)
-    #serial_port.write(Inquiry.ZoomPos)
+    serial_port.write(Commands.Cam_DZoom_min)
     if args["zoom"] == "zoomin" :
         if not args.get("speed", False):
             serial_port.write(Commands.ZoomTele)
