@@ -55,7 +55,7 @@ try:
             #if packet == power_on :
               #print("camera already powered on")
               #power = True
-            "else : 
+            #else : 
               #serial_port.write(Commands.PowerOn)
               #print("camera on !")
               #power = True
