@@ -51,14 +51,14 @@ try:
           packet.append(s)
           print(packet)
           
-          if args["power"] == "on" or not args.get("digitalzoom",False) :
-            if packet == power_on :
-              print("camera already powered on")
-              power = True
-            else : 
-              serial_port.write(Commands.PowerOn)
-              print("camera on !")
-              power = True
+          #if args["power"] == "on" or not args.get("digitalzoom",False) :
+            #if packet == power_on :
+              #print("camera already powered on")
+              #power = True
+            "else : 
+              #serial_port.write(Commands.PowerOn)
+              #print("camera on !")
+              #power = True
           
           #if args["power"] == "off" :
             #if packet == power_off :
