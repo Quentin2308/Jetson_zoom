@@ -35,7 +35,7 @@ time.sleep(1)
 
 try:
   serial_port.write(Commands.adress_set)
-  serial_port.write(Commands.PowerOn)      
+  #serial_port.write(Commands.PowerOn)      
   power = False
   while not power :
     serial_port.write(Inquiry.Power)
@@ -51,23 +51,23 @@ try:
           packet.append(s)
           print(packet)
           
-          #if args["power"] == "on" or not args.get("digitalzoom",False) :
-            #if packet == power_on :
-              #print("camera already powered on")
-              #power = True
-            #else : 
-              #serial_port.write(Commands.PowerOn)
-              #print("camera on !")
-              #power = True
+          if args["power"] == "on" or not args.get("digitalzoom",False) :
+            if packet == power_on :
+              print("camera already powered on")
+              power = True
+            else : 
+              serial_port.write(Commands.PowerOn)
+              print("camera on !")
+              power = True
           
-          #if args["power"] == "off" :
-            #if packet == power_off :
-              #print("camera already powered off")
-              #power = True
-            #else :
-              #serial_port.write(Commands.PowerOff)
-              #print("camera power off !")
-              #power = True
+          if args["power"] == "off" :
+            if packet == power_off :
+              print("camera already powered off")
+              power = True
+            else :
+              serial_port.write(Commands.PowerOff)
+              print("camera power off !")
+              power = True
                 
           finished_packet = True
         
