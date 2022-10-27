@@ -52,7 +52,7 @@ try:
           print(packet)
           
           if args["power"] == "on" or not args.get("digitalzoom",False) :
-            if packet == power_on
+            if packet == power_on :
               print("camera already powered on")
               power = True
             else : 
