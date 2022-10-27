@@ -1,9 +1,9 @@
-# zoom normal vers l'avant : sudo python3 test.py -z zoomin
-# zoom normal vers l'arrière : sudo python3 test.py -z zoomout
-# zoom vers l'avant à vitesse variable allant de 0 à 7 (ici 2) : sudo python3 test.py -z zoomin -s 2
-# zoom vers l'arrière à vitesse variable allant de 0 à 7 (ici 2) : sudo python3 test.py -z zoomout -s 2
-# arrêt du zoom : sudo python3 test.py ou CTRL+C pendant l'exécution du code
-# digital zoom par défaut en x1 sinon configurable de 0 à 5 (x1 à x12) : sudo python3 test.py -z zoomin -s 2 -d 3
+# zoom normal vers l'avant : sudo python3 zoom.py -z zoomin
+# zoom normal vers l'arrière : sudo python3 zoom.py -z zoomout
+# zoom vers l'avant à vitesse variable allant de 0 à 7 (ici 2) : sudo python3 zoom.py -z zoomin -s 2
+# zoom vers l'arrière à vitesse variable allant de 0 à 7 (ici 2) : sudo python3 zoom.py -z zoomout -s 2
+# arrêt du zoom : sudo python3 zoom.py ou CTRL+C pendant l'exécution du code
+# digital zoom par défaut en x1 sinon configurable de 0 à 5 (x1 à x12) : sudo python3 zoom.py -z zoomin -s 2 -d 3
 
 import time
 import serial
