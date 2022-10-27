@@ -1,3 +1,6 @@
+# sans paramètre a caméra essaie de s'allumer
+# allumage de la camera : sudo python3 power.py -p on 
+# extinction de la camera : sudo python3 power.py -p off
 
 import time
 import serial
