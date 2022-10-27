@@ -49,7 +49,7 @@ try:
         
         if s == b'\xff' :
           packet.append(s)
-          print(packet)
+          #print(packet)
           
           if args["power"] == "on" or not args.get("power",False) :
             if packet == power_on :
