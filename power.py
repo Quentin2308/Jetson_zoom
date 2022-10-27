@@ -55,7 +55,7 @@ try:
             if packet == power_on :
               print("camera already powered on")
               power = True
-            else : 
+            elif packet == power_off : 
               serial_port.write(Commands.PowerOn)
               print("camera on !")
               power = True
@@ -64,7 +64,7 @@ try:
             if packet == power_off :
               print("camera already powered off")
               power = True
-            else :
+            elif packet == power_on :
               serial_port.write(Commands.PowerOff)
               print("camera power off !")
               power = True
