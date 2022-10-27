@@ -12,7 +12,7 @@ print("UART Program")
 print("NVIDIA Jetson Nano Developer Kit")
 
 power_on = [b'\x90', b'P', b'\x02', b'\xff']
-#power_off =
+power_off = [b'\x90', b'P', b'\x03', b'\xff']
 
 class Commands:
   adress_set = bytearray.fromhex("883001FF")
@@ -35,7 +35,7 @@ time.sleep(1)
 
 try:
   serial_port.write(Commands.adress_set)
-  serial_port.write(Commands.PowerOff)      
+  serial_port.write(Commands.PowerOn)      
   power = False
   while not power :
     serial_port.write(Inquiry.Power)
